@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Conversation = ({ conversation, currentUser }) => {
     const [user, setUser] = useState(null);
@@ -26,7 +26,7 @@ export const Conversation = ({ conversation, currentUser }) => {
                         <p className=" p-2 text-lg">{user?.username}</p>
                     </div>
                     <span class="inline-flex items-center justify-center min-h-5 min-w-5 p-0.5 ms-2 text-xs font-semibold text-blue-800 bg-blue-200 rounded-full">
-                        9
+                        
                     </span>
                 </button>
             </div>

@@ -11,7 +11,7 @@ import LandingPage from "./pages/LandingPage";
 import LandingLayout from "./components/layout/LandingLayout";
 // import Formik from "./components/Formik";
 
-axios.defaults.baseURL = "http://localhost:3005";
+axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = true;
 
 function App() {
