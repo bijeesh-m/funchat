@@ -4,6 +4,7 @@ const { Server } = require("socket.io");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const cors = require("cors");
+const path = require("path");
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const conversationRoute = require("./routes/conversation");
@@ -18,11 +19,16 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000", // frontend URL
+    origin: "https://funchat-tq65.onrender.com", // frontend URL
   },
 });
 
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+
+app.use(express.static(path.join(__dirname, "../client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 let users = [];
 
