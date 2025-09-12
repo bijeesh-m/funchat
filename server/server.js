@@ -20,9 +20,11 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: "https://funchat-tq65.onrender.com", // frontend URL
+    // origin: "http://localhost:3000", // frontend URL
   },
 });
 
+// app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
 app.use(express.static(path.join(__dirname, "../client/build")));
 

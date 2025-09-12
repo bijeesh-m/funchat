@@ -6,7 +6,7 @@ export const ChatLayout = () => {
     return (
         <div className=" h-screen flex flex-col">
             <NavBar />
-            <div className=" flex-grow ">
+            <div className=" flex-1  overflow-hidden ">
                 <Outlet />
             </div>
         </div>

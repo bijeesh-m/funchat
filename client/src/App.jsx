@@ -12,6 +12,7 @@ import LandingLayout from "./components/layout/LandingLayout";
 // import Formik from "./components/Formik";
 
 axios.defaults.baseURL = "https://funchat-tq65.onrender.com";
+// axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.withCredentials = true;
 
 function App() {

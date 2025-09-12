@@ -18,6 +18,7 @@ module.exports.newConversation = async (req, res) => {
 //get conv of a user
 
 module.exports.getConversation = async (req, res) => {
+    console.log("hello")
     try {
         const conversation = await Conversation.find({
             members: { $in: [req.params.userId] },
