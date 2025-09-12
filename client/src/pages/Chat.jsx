@@ -61,7 +61,7 @@ const Chat = () => {
   useEffect(() => {
     const getConversation = () => {
       axios
-        .get(`conversation/${currentUser?._id}`)
+        .get(`/conversation/${currentUser?._id}`)
         .then((res) => {
           setConversation(res.data);
           console.log(res);
