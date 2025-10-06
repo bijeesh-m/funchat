@@ -27,18 +27,18 @@ export const NavBar = () => {
 
   // Optional: Fetch users from an API (uncomment and adjust as needed)
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await axios.get("/user/users");
-        console.log("data :",response);
-        setUsers(response.data);
-      } catch (error) {
-        console.log("Error fetching users:", error);
-      }
-    };
-    fetchUsers();
-  }, []);
+  // useEffect(() => {
+  //   const fetchUsers = async () => {
+  //     try {
+  //       const response = await axios.get("/user/users");
+  //       console.log("data :",response);
+  //       setUsers(response.data);
+  //     } catch (error) {
+  //       console.log("Error fetching users:", error);
+  //     }
+  //   };
+  //   fetchUsers();
+  // }, []);
 
   return (
     <div className=" flex  relative items-center justify-between  text-xl font-bold p-5 ">
