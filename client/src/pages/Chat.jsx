@@ -29,8 +29,8 @@ const Chat = () => {
   const messagesEndRef = useRef();
 
   useEffect(() => {
-    // socket.current = io("https://funchat-tq65.onrender.com");
-    socket.current = io("http://localhost:8000");
+    socket.current = io("https://funchat-tq65.onrender.com");
+    // socket.current = io("http://localhost:8000");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
