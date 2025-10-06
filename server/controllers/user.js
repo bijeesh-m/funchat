@@ -11,3 +11,14 @@ module.exports.getUser = async (req, res) => {
         res.status(500).json(err);
     }
 };
+module.exports.getAllUsers = async (req, res) => {
+
+    console.log("users")
+    
+    try {
+        const users =  await User.find();
+        res.status(200).json(users);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+};

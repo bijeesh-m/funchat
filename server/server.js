@@ -9,8 +9,7 @@ const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const conversationRoute = require("./routes/conversation");
 const messageRoute = require("./routes/messages");
-// const messagRoute = require('./routes/messages')
-// const conversationRoute = require('./routes/conversation')
+
 
 require("dotenv").config();
 
@@ -20,11 +19,11 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: "https://funchat-tq65.onrender.com", // frontend URL
-    // origin: "http://localhost:3000", // frontend URL
+    // origin: "http://localhost:5173", // frontend URL
   },
 });
 
-// app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+// app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
 app.use(express.static(path.join(__dirname, "../client/build")));
 

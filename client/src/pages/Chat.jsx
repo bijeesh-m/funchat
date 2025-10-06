@@ -9,11 +9,13 @@ import VideocamIcon from "@mui/icons-material/Videocam";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { Sidbar } from "../components/chat/Sidbar";
 import { useAuth } from "../components/hooks/useAuth";
+import { useContext } from "react";
+import { authContext } from "../components/context/AuthContext";
 
 const Chat = () => {
   const [username, setUsername] = useState("");
   const [conversation, setConversation] = useState(null);
-  const [currentChat, setCurrentChat] = useState(null);
+  const {currentChat, setCurrentChat} = useContext(authContext);
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [messages, setMessages] = useState(null);
   const [room, setRoom] = useState("");
@@ -27,7 +29,8 @@ const Chat = () => {
   const messagesEndRef = useRef();
 
   useEffect(() => {
-    socket.current = io("https://funchat-tq65.onrender.com");
+    // socket.current = io("https://funchat-tq65.onrender.com");
+    socket.current = io("http://localhost:8000");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
@@ -140,6 +143,8 @@ const Chat = () => {
     }
   }, [messages, typing]);
 
+  console.log(currentChat)
+
   const handleChange = (e) => {
     setNewMessage(e.target.value);
     const receiverId = currentChat?.members?.find(
@@ -168,7 +173,6 @@ const Chat = () => {
       >
         <Sidbar
           socket={socket}
-          setCurrentChat={setCurrentChat}
           conversation={conversation}
           currentUser={currentUser}
           setUsername={setUsername}
@@ -182,7 +186,7 @@ const Chat = () => {
           currentChat ? "flex" : "hidden"
         }   flex-col justify-between    md:flex border-l border-t `}
       >
-        {currentChat ? (
+        {currentChat!=null ? (
           <div className=" h-full flex justify-between flex-col ">
             <div className="   border-b px-5 py-5  flex items-center justify-between ">
               <div className=" flex items-center gap-5">
@@ -208,6 +212,7 @@ const Chat = () => {
                 {messages?.map((message) => {
                   return (
                     <div
+                      key={message._id}
                       className={`   ${
                         message?.sender === currentUser?._id
                           ? "flex justify-end  "
