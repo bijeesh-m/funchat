@@ -10,7 +10,7 @@ export const NavBar = () => {
   const {setCurrentChat} = useContext(authContext)
 
   // Filter users based on search term
-  const filteredUsers = users.filter((user) =>
+  const filteredUsers = users?.filter((user) =>
     user?.username.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -31,7 +31,7 @@ export const NavBar = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get("/user/users");
-        console.log(response);
+        console.log("data :",response);
         setUsers(response.data);
       } catch (error) {
         console.log("Error fetching users:", error);
